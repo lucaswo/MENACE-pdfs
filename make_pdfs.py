@@ -44,11 +44,11 @@ for i, boards in enumerate(positions):
     for j, board in enumerate(boards):
         latex += board.as_latex()
         latex += "\n"
-        if (j + 1) % 5 == 0:
-            latex += "\n\\noindent"
+        if (j + 1) % 6 == 0:
+            latex += "\\vspace{-1mm}\n\n\\noindent"
     latex += postamb
     print(latex)
     with open(f"output/boxes{i}.tex", "w") as f:
         f.write(latex)
-    assert os.system(
-        f"pdflatex -output-directory output output/boxes{i}.tex") == 0
+    #assert os.system(
+    #    f"pdflatex -output-directory output output/boxes{i}.tex") == 0

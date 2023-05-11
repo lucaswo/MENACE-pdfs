@@ -6,3 +6,4 @@
 .*.swp
 *.csv
 !output/*.pdf
+!output/*.tex

@@ -1,7 +1,8 @@
 preamb = (
-    "\\documentclass{article}\n"
+    "\\documentclass[a4paper]{article}\n"
     "\\usepackage{tikz}\n"
-    "\\usepackage[top=2cm,left=1.5cm,right=1.5cm,bottom=2cm]{geometry}\n"
+    "\\usepackage[top=1cm,left=1cm,right=0cm,bottom=1cm]{geometry}\n"
+    "\\pagestyle{empty}\n"
     "\\begin{document}\n"
     "\\noindent\n"
 )

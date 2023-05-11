@@ -55,31 +55,32 @@ class Board:
 
     def as_latex(self):
         out = "\\begin{tikzpicture}\n"
-        out += "\\clip (3.75mm,-1mm) rectangle (40.25mm,25mm);\n"
-        out += "\\draw[gray] (5mm,5mm) -- (39mm,5mm);\n"
-        out += "\\draw[gray] (5mm,19mm) -- (39mm,19mm);\n"
-        out += "\\draw[gray] (5mm,0mm) -- (5mm,24mm);\n"
-        out += "\\draw[gray] (39mm,0mm) -- (39mm,24mm);\n"
+        out += "\\clip (3.75mm,-1mm) rectangle (37.25mm,30mm);\n"
+        out += "\\draw[gray] (5mm,9mm) -- (36mm,9mm);\n"
+        out += "\\draw[gray] (5mm,20mm) -- (36mm,20mm);\n"
+        out += "\\draw[gray] (5mm,0mm) -- (5mm,30mm);\n"
+        out += "\\draw[gray] (36mm,0mm) -- (36mm,30mm);\n"
 
-        out += "\\draw (16mm,10mm) -- (28mm,10mm);\n"
-        out += "\\draw (16mm,14mm) -- (28mm,14mm);\n"
-        out += "\\draw (20mm,6mm) -- (20mm,18mm);\n"
-        out += "\\draw (24mm,6mm) -- (24mm,18mm);\n"
+        out += "\\draw (16mm,13mm) -- (25mm,13mm);\n"
+        out += "\\draw (16mm,16mm) -- (25mm,16mm);\n"
+        out += "\\draw (19mm,10mm) -- (19mm,19mm);\n"
+        out += "\\draw (22mm,10mm) -- (22mm,19mm);\n"
 
         for i, c in enumerate([
-            (16, 6), (20, 6), (24, 6),
-            (16, 10), (20, 10), (24, 10),
-            (16, 14), (20, 14), (24, 14)
+            (17.5, 11.5), (20.5, 11.5), (23.5, 11.5),
+            (17.5, 14.5), (20.5, 14.5), (23.5, 14.5),
+            (17.5, 17.5), (20.5, 17.5), (23.5, 17.5)
         ]):
             if self[i] == 1:
                 # o
-                out += f"\\draw ({c[0]+2}mm,{c[1]+2}mm) circle (1mm);\n"
+                out += f"\\draw ({c[0]}mm,{c[1]}mm) circle (0.9mm);\n"
             if self[i] == 2:
                 # x
-                out += (f"\\draw ({c[0]+1}mm,{c[1]+1}mm)"
-                        f" -- ({c[0]+3}mm,{c[1]+3}mm);\n"
-                        f"\\draw ({c[0]+1}mm,{c[1]+3}mm)"
-                        f" -- ({c[0]+3}mm,{c[1]+1}mm);\n")
+                out += (f"\\draw ({c[0]-1}mm,{c[1]-1}mm)"
+                        f" -- ({c[0]+1}mm,{c[1]+1}mm);\n"
+                        f"\\draw ({c[0]-1}mm,{c[1]+1}mm)"
+                        f" -- ({c[0]+1}mm,{c[1]-1}mm);\n")
 
-        out += "\\end{tikzpicture}"
+        out += "\\end{tikzpicture}\n"
+        out += "\\hspace{-5mm}"
         return out
