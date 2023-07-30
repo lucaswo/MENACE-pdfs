@@ -10,7 +10,7 @@ class Board:
 
     def __str__(self):
         return "\n".join([
-            "".join([[" ", "o", "x"][j] for j in self.board[3*i:3*i+3]])
+            "".join([[" ", "o", "x", "■"][j] for j in self.board[3*i:3*i+3]])
             for i in range(3)
         ])
 
@@ -80,6 +80,9 @@ class Board:
                         f" -- ({c[0]+1}mm,{c[1]+1}mm);\n"
                         f"\\draw ({c[0]-1}mm,{c[1]+1}mm)"
                         f" -- ({c[0]+1}mm,{c[1]-1}mm);\n")
+            if self[i] == 3:
+                # ■
+                out += f"\\node[draw,fill=black,shape=rectangle,minimum height=1.8mm,minimum width=1.8mm,inner sep=0] at ({c[0]}mm,{c[1]}mm) {{}};\n"
 
         out += "\\end{tikzpicture}\n"
         out += "\\hspace{-5mm}"
